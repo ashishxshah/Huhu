@@ -1,7 +1,7 @@
 // ===============================
 // CANVAS SETUP
 // ===============================
-
+let heartInterval;
 const canvas = document.getElementById("starfield");
 const ctx = canvas.getContext("2d");
 
@@ -822,7 +822,7 @@ surpriseButton.addEventListener("click",()=>{
 
         imageContainer.classList.add("show");
 
-        setInterval(createHeart,350);
+        heartInterval= setInterval(createHeart,350);
 
     },2200);
 
