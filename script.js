@@ -769,6 +769,11 @@ const imageContainer =
 
 const fadeOverlay =
     document.getElementById("fadeOverlay");
+const introScreen = document.getElementById("introScreen");
+
+const mochi = document.getElementById("mochi");
+
+const dialogueText = document.getElementById("dialogueText");
 
 
 
