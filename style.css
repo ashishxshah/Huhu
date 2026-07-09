@@ -216,3 +216,36 @@ html,body{
     z-index:9999;
 
 }
+#mochi{
+
+    width:180px;
+
+    margin-bottom:25px;
+
+}
+
+#speechBubble{
+
+    width:min(90vw,420px);
+
+    background:white;
+
+    color:#222;
+
+    padding:18px 24px;
+
+    border-radius:22px;
+
+    font-size:20px;
+
+    text-align:center;
+
+    min-height:80px;
+
+}
+
+#dialogueText{
+
+    line-height:1.5;
+
+}
