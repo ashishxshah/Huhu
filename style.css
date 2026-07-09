@@ -180,16 +180,84 @@ html,body{
 
 }
 
-#anniversaryImage{
+#photoStack{
 
-    width:min(92vw,520px);
-    max-width:100%;
-    height:auto;
+    position:relative;
 
-    border-radius:20px;
+    width:min(90vw,420px);
+
+    height:min(80vh,620px);
+
+}
+
+.photo{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    user-select:none;
 
     box-shadow:
-        0 0 35px rgba(255,255,255,.25);
+        0 12px 35px rgba(0,0,0,.45);
+
+    transition:
+        transform .8s ease,
+        opacity .8s ease;
+
+}
+
+/* Different angles for each photo */
+
+.photo:nth-child(1){
+
+    transform:rotate(-6deg);
+
+}
+
+.photo:nth-child(2){
+
+    transform:rotate(4deg);
+
+}
+
+.photo:nth-child(3){
+
+    transform:rotate(-2deg);
+
+}
+
+.photo:nth-child(4){
+
+    transform:rotate(5deg);
+
+}
+
+.photo:nth-child(5){
+
+    transform:rotate(-3deg);
+
+}
+
+/* Slide animation */
+
+.photo.slideAway{
+
+    transform:
+        translateX(140vw)
+        rotate(25deg);
+
+    opacity:0;
 
 }
 /* ===========================
