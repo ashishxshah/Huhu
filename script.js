@@ -942,44 +942,29 @@ function animate(){
 
 function setupPhotoStack() {
 
-    let current = photos.length - 1;
+    const photos = Array.from(document.querySelectorAll(".photo"));
+
+    photos.forEach((photo, index) => {
+
+        photo.style.zIndex = photos.length - index;
+
+    });
 
     photos.forEach(photo => {
 
         photo.addEventListener("click", () => {
 
-            // Only the top photo can move
-            if (photo !== photos[current]) return;
+            // Find the current top photo
+            const topPhoto = [...photos].find(p => !p.classList.contains("slideAway"));
 
-            // Don't remove the last photo ❤️
-            if (current === 0) return;
+            if (photo !== topPhoto) return;
 
-            // Slide away
+            // If this is the last remaining photo, don't slide it away
+            const remaining = photos.filter(p => !p.classList.contains("slideAway"));
+
+            if (remaining.length === 1) return;
+
             photo.classList.add("slideAway");
-
-            // Tiny bounce for the next one
-            const nextPhoto = photos[current - 1];
-
-            setTimeout(() => {
-
-                nextPhoto.style.transition =
-                    "transform .35s ease";
-
-                nextPhoto.style.transform += " scale(1.03)";
-
-                setTimeout(() => {
-
-                    nextPhoto.style.transform =
-                        nextPhoto.style.transform.replace(
-                            " scale(1.03)",
-                            ""
-                        );
-
-                }, 180);
-
-            }, 350);
-
-            current--;
 
         });
 
