@@ -786,7 +786,8 @@ const bgMusic =
 const finalMusic =
     document.getElementById("finalMusic");
 
-
+const photos =
+    document.querySelectorAll(".photo");
 // ===============================
 // INTRO BUTTON
 // ===============================
@@ -898,12 +899,13 @@ surpriseButton.addEventListener("click",()=>{
 
     setTimeout(()=>{
 
-        canvas.style.display="none";
+        canvas.style.display = "none";
 
-        imageContainer.classList.add("show");
+imageContainer.classList.add("show");
 
-        heartInterval = setInterval(createHeart,350);
+heartInterval = setInterval(createHeart,350);
 
+setupPhotoStack();
     },2200);
 
 });
@@ -934,6 +936,56 @@ function animate(){
 
 }
 
+// ===============================
+// PHOTO STACK
+// ===============================
+
+function setupPhotoStack() {
+
+    let current = photos.length - 1;
+
+    photos.forEach(photo => {
+
+        photo.addEventListener("click", () => {
+
+            // Only the top photo can move
+            if (photo !== photos[current]) return;
+
+            // Don't remove the last photo ❤️
+            if (current === 0) return;
+
+            // Slide away
+            photo.classList.add("slideAway");
+
+            // Tiny bounce for the next one
+            const nextPhoto = photos[current - 1];
+
+            setTimeout(() => {
+
+                nextPhoto.style.transition =
+                    "transform .35s ease";
+
+                nextPhoto.style.transform += " scale(1.03)";
+
+                setTimeout(() => {
+
+                    nextPhoto.style.transform =
+                        nextPhoto.style.transform.replace(
+                            " scale(1.03)",
+                            ""
+                        );
+
+                }, 180);
+
+            }, 350);
+
+            current--;
+
+        });
+
+    });
+
+}
 animate();
 
 
