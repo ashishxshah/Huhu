@@ -184,7 +184,11 @@ html,body{
 
     width:min(92vw,520px);
 
-    border-radius:
+    border-radius:20px;
+
+    box-shadow:0 0 35px rgba(255,255,255,.25);
+
+}
 /* ===========================
    INTRO SCREEN
 =========================== */
