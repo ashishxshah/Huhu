@@ -879,7 +879,9 @@ function animate(){
 
 }
 
-//animate();
+window.startAnimation = function () {
+    animate();
+};
 
 
 
