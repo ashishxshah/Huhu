@@ -254,10 +254,14 @@ html,body{
 .photo.slideAway{
 
     transform:
-        translateX(140vw)
-        rotate(25deg);
+        translateX(160vw)
+        translateY(-40px)
+        rotate(35deg)
+        scale(0.92);
 
     opacity:0;
+
+    pointer-events:none;
 
 }
 /* ===========================
