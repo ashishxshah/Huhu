@@ -783,6 +783,8 @@ const continueButton =
 
 const bgMusic =
     document.getElementById("bgMusic");
+const finalMusic =
+    document.getElementById("finalMusic");
 
 
 // ===============================
@@ -834,7 +836,53 @@ function createHeart(){
 
 }
 
+// ===============================
+// MUSIC CROSSFADE
+// ===============================
 
+function crossfadeMusic() {
+
+    finalMusic.volume = 0;
+
+    finalMusic.play();
+
+    let fadeOut = setInterval(() => {
+
+        if (bgMusic.volume > 0.02) {
+
+            bgMusic.volume -= 0.02;
+
+        } else {
+
+            bgMusic.pause();
+
+            bgMusic.currentTime = 0;
+
+            bgMusic.volume = 1;
+
+            clearInterval(fadeOut);
+
+        }
+
+    }, 100);
+
+    let fadeIn = setInterval(() => {
+
+        if (finalMusic.volume < 0.98) {
+
+            finalMusic.volume += 0.02;
+
+        } else {
+
+            finalMusic.volume = 1;
+
+            clearInterval(fadeIn);
+
+        }
+
+    }, 100);
+
+}
 
 // ===============================
 // SURPRISE BUTTON
@@ -844,6 +892,8 @@ surpriseButton.addEventListener("click",()=>{
 
     surpriseButton.style.display="none";
 
+    crossfadeMusic();
+
     fadeOverlay.classList.add("show");
 
     setTimeout(()=>{
@@ -852,7 +902,7 @@ surpriseButton.addEventListener("click",()=>{
 
         imageContainer.classList.add("show");
 
-        heartInterval= setInterval(createHeart,350);
+        heartInterval = setInterval(createHeart,350);
 
     },2200);
 
