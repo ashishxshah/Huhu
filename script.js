@@ -18,6 +18,11 @@ const stars = [];
 const shootingStars = [];
 
 let frame = 0;
+// ===============================
+// INTRO STATE
+// ===============================
+
+let introActive = true;
 
 
 // ===============================
@@ -770,8 +775,33 @@ const imageContainer =
 const fadeOverlay =
     document.getElementById("fadeOverlay");
 
+const introScreen =
+    document.getElementById("introScreen");
+
+const continueButton =
+    document.getElementById("continueButton");
+
+const bgMusic =
+    document.getElementById("bgMusic");
 
 
+// ===============================
+// INTRO BUTTON
+// ===============================
+
+continueButton.addEventListener("click", () => {
+
+    bgMusic.play();
+
+    introScreen.classList.add("hide");
+
+    setTimeout(() => {
+
+        introActive = false;
+
+    }, 1200);
+
+});
 // ===============================
 // HEARTS
 // ===============================
@@ -844,7 +874,11 @@ function animate(){
 
     drawShootingStars();
 
-    updateTextTimeline();
+    if(!introActive){
+
+        updateTextTimeline();
+
+    }
 
     requestAnimationFrame(animate);
 
