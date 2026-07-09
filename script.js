@@ -769,11 +769,6 @@ const imageContainer =
 
 const fadeOverlay =
     document.getElementById("fadeOverlay");
-const introScreen = document.getElementById("introScreen");
-
-const mochi = document.getElementById("mochi");
-
-const dialogueText = document.getElementById("dialogueText");
 
 
 
@@ -834,31 +829,7 @@ surpriseButton.addEventListener("click",()=>{
 });
 
 
-// ===============================
-// MOCHI INTRO
-// ===============================
 
-const introMessage =
-"Oh? Ari? What's the date today?";
-
-let letterIndex = 0;
-
-function typeIntro(){
-
-    if(letterIndex < introMessage.length){
-
-        dialogueText.textContent +=
-            introMessage.charAt(letterIndex);
-
-        letterIndex++;
-
-        setTimeout(typeIntro,45);
-
-    }
-
-}
-
-typeIntro();
 // ===============================
 // MAIN LOOP
 // ===============================
@@ -879,9 +850,7 @@ function animate(){
 
 }
 
-window.startAnimation = function () {
-    animate();
-};
+animate();
 
 
 
