@@ -834,7 +834,31 @@ surpriseButton.addEventListener("click",()=>{
 });
 
 
+// ===============================
+// MOCHI INTRO
+// ===============================
 
+const introMessage =
+"Oh? Ari? What's the date today?";
+
+let letterIndex = 0;
+
+function typeIntro(){
+
+    if(letterIndex < introMessage.length){
+
+        dialogueText.textContent +=
+            introMessage.charAt(letterIndex);
+
+        letterIndex++;
+
+        setTimeout(typeIntro,45);
+
+    }
+
+}
+
+typeIntro();
 // ===============================
 // MAIN LOOP
 // ===============================
